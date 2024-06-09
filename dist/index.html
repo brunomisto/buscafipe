@@ -8,37 +8,46 @@
 </head>
 <body>
   <header>
-    <h1>BuscaFIPE</h1>
+    <div class="container">
+      <h1>BuscaFIPE</h1>
+      <p>Busque o preço de múltiplos veículos de acordo com a tabela FIPE</p>
+    </div>
   </header>
   <main>
-    <section>
-      <h2>Procurar veículo</h2>
-      <form id="search-vehicle">
-        <label>
-          Tipo
-          <select id="vehicle-type"></select>
-        </label>
-        <label>
-          Marca
-          <select id="vehicle-brand"></select>
-        </label>
-        <label>
-          Modelo
-          <select id="vehicle-model"></select>
-        </label>
-        <label>
-          Ano
-          <select id="vehicle-year"></select>
-        </label>
-        <button type="button" id="vehicle-search-button">Buscar informações</button>
-      </form>
-    </section>
-    <section>
-      <h2>Veículos</h2>
-      <div id="vehicle-output"></div>
-    </section>
+    <div class="container">
+      <section>
+        <h2>Procurar veículo</h2>
+        <form id="search-vehicle">
+          <label>
+            Tipo
+            <select id="vehicle-type"></select>
+          </label>
+          <label>
+            Marca
+            <select id="vehicle-brand"></select>
+          </label>
+          <label>
+            Modelo
+            <select id="vehicle-model"></select>
+          </label>
+          <label>
+            Ano
+            <select id="vehicle-year"></select>
+          </label>
+          <button type="button" id="vehicle-search-button">Buscar informações</button>
+        </form>
+      </section>
+      <section>
+        <h2>Veículos</h2>
+        <div id="vehicle-output"></div>
+      </section>
+    </div>
   </main>
-  <footer></footer>
+  <footer>
+    <div class="container">
+      <a href="https://github.com/brunomisto">/brunomisto</a>
+    </div>
+  </footer>
   <script src="script.js"></script>
 </body>
 </html>

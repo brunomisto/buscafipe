@@ -47,21 +47,27 @@ const renderVehicle = (fipeInfo) => {
   vehicleModelHeading.innerText = `${fipeInfo.model} - ${fipeInfo.modelYear}`;
 
   const vehicleInfoElement = document.createElement("div");
-  vehicleInfoElement.className = "vehicle-info";
+  vehicleInfoElement.className = "vehicle-info expanded";
+
+  const vehicleControlsElement = document.createElement("div");
+  vehicleControlsElement.className = "vehicle-controls";
 
   const vehicleExpandButton = document.createElement("button");
+  vehicleExpandButton.className = "vehicle-expand";
   vehicleExpandButton.innerText = "expand";
   vehicleExpandButton.addEventListener("click", () => {
     vehicleInfoElement.classList.toggle("expanded");
   });
 
   const vehicleCloseButton = document.createElement("button");
+  vehicleCloseButton.className = "vehicle-close";
   vehicleCloseButton.innerText = "close";
   vehicleCloseButton.addEventListener("click", () => {
-    if (prompt("are you sure?")) {
       vehicleElement.remove();
-    }
   });
+
+  vehicleControlsElement.appendChild(vehicleExpandButton);
+  vehicleControlsElement.appendChild(vehicleCloseButton);
 
   const vehicleCodeFipeElement = document.createElement("p");
   vehicleCodeFipeElement.innerText = fipeInfo.codeFipe;
@@ -79,8 +85,7 @@ const renderVehicle = (fipeInfo) => {
   vehicleReferenceMonthElement.innerText = fipeInfo.referenceMonth;
 
   vehicleElement.appendChild(vehicleModelHeading);
-  vehicleElement.appendChild(vehicleExpandButton);
-  vehicleElement.appendChild(vehicleCloseButton);
+  vehicleElement.appendChild(vehicleControlsElement);
   vehicleInfoElement.appendChild(vehicleCodeFipeElement);
   vehicleInfoElement.appendChild(vehicleModelYearElement);
   vehicleInfoElement.appendChild(vehicleFuelElement);
