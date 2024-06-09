@@ -22,6 +22,75 @@ const clearSelects = (index) => {
   });
 };
 
+const renderSelect = (list, select) => {
+  const defaultOption = document.createElement("option");
+  defaultOption.disabled = true;
+  defaultOption.selected = true;
+  defaultOption.innerText = "Selecione uma opção";
+  defaultOption.value = "";
+  select.appendChild(defaultOption);
+
+  // list is an array with objects with "code" and "name"
+  list.forEach((object) => {
+    const optionElement = document.createElement("option");
+    optionElement.value = object.code;
+    optionElement.innerText = object.name;
+    select.appendChild(optionElement);
+  });
+};
+
+const renderVehicle = (fipeInfo) => {
+  const vehicleElement = document.createElement("div");
+  vehicleElement.className = "vehicle";
+
+  const vehicleModelHeading = document.createElement("h3");
+  vehicleModelHeading.innerText = `${fipeInfo.model} - ${fipeInfo.modelYear}`;
+
+  const vehicleInfoElement = document.createElement("div");
+  vehicleInfoElement.className = "vehicle-info";
+
+  const vehicleExpandButton = document.createElement("button");
+  vehicleExpandButton.innerText = "expand";
+  vehicleExpandButton.addEventListener("click", () => {
+    vehicleInfoElement.classList.toggle("expanded");
+  });
+
+  const vehicleCloseButton = document.createElement("button");
+  vehicleCloseButton.innerText = "close";
+  vehicleCloseButton.addEventListener("click", () => {
+    if (prompt("are you sure?")) {
+      vehicleElement.remove();
+    }
+  });
+
+  const vehicleCodeFipeElement = document.createElement("p");
+  vehicleCodeFipeElement.innerText = fipeInfo.codeFipe;
+
+  const vehicleModelYearElement = document.createElement("p");
+  vehicleModelYearElement.innerText = fipeInfo.modelYear;
+
+  const vehicleFuelElement = document.createElement("p");
+  vehicleFuelElement.innerText = fipeInfo.fuel;
+  
+  const vehiclePriceElement = document.createElement("p");
+  vehiclePriceElement.innerText = fipeInfo.price;
+
+  const vehicleReferenceMonthElement = document.createElement("p");
+  vehicleReferenceMonthElement.innerText = fipeInfo.referenceMonth;
+
+  vehicleElement.appendChild(vehicleModelHeading);
+  vehicleElement.appendChild(vehicleExpandButton);
+  vehicleElement.appendChild(vehicleCloseButton);
+  vehicleInfoElement.appendChild(vehicleCodeFipeElement);
+  vehicleInfoElement.appendChild(vehicleModelYearElement);
+  vehicleInfoElement.appendChild(vehicleFuelElement);
+  vehicleInfoElement.appendChild(vehiclePriceElement);
+  vehicleInfoElement.appendChild(vehicleReferenceMonthElement);
+  vehicleElement.appendChild(vehicleInfoElement);
+
+  vehicleOutputElement.appendChild(vehicleElement);
+};
+
 export const renderVehicleTypeSelect = () => {
   const vehicleTypes = [
     { value: "cars", text: "Carro" }, 
@@ -46,60 +115,6 @@ export const renderVehicleTypeSelect = () => {
     // Append it to the select
     vehicleTypeSelect.appendChild(vehicleTypeOption);
   });
-};
-
-const renderSelect = (list, select) => {
-  const defaultOption = document.createElement("option");
-  defaultOption.disabled = true;
-  defaultOption.selected = true;
-  defaultOption.innerText = "Selecione uma opção";
-  defaultOption.value = "";
-  select.appendChild(defaultOption);
-
-  // list is an array with objects with "code" and "name"
-  list.forEach((object) => {
-    const optionElement = document.createElement("option");
-    optionElement.value = object.code;
-    optionElement.innerText = object.name;
-    select.appendChild(optionElement);
-  });
-};
-
-const renderVehicle = (fipeInfo) => {
-  const vehicleElement = document.createElement("div");
-  vehicleElement.className = "vehicle";
-
-  const vehicleModelHeading = document.createElement("h3");
-  vehicleModelHeading.innerText = fipeInfo.model;
-
-  const vehicleCloseButton = document.createElement("button");
-  vehicleCloseButton.innerText = "close";
-  vehicleCloseButton.addEventListener("click", () => {
-    if (prompt("are you sure?")) {
-      vehicleElement.remove();
-    }
-  });
-
-  const vehicleModelYearElement = document.createElement("p");
-  vehicleModelYearElement.innerText = fipeInfo.modelYear;
-
-  const vehicleFuelElement = document.createElement("p");
-  vehicleFuelElement.innerText = fipeInfo.fuel;
-  
-  const vehiclePriceElement = document.createElement("p");
-  vehiclePriceElement.innerText = fipeInfo.price;
-
-  const vehicleReferenceMonthElement = document.createElement("p");
-  vehicleReferenceMonthElement.innerText = fipeInfo.referenceMonth;
-
-  vehicleElement.appendChild(vehicleModelHeading);
-  vehicleElement.appendChild(vehicleCloseButton);
-  vehicleElement.appendChild(vehicleModelYearElement);
-  vehicleElement.appendChild(vehicleFuelElement);
-  vehicleElement.appendChild(vehiclePriceElement);
-  vehicleElement.appendChild(vehicleReferenceMonthElement);
-
-  vehicleOutputElement.appendChild(vehicleElement);
 };
 
 export const addEventListeners = () => {

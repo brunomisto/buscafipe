@@ -1,0 +1,7 @@
+.vehicle-info {
+  display: none;
+}
+
+.vehicle-info.expanded {
+  display: block;
+}

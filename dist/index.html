@@ -7,30 +7,38 @@
   <title>BuscaFIPE</title>
 </head>
 <body>
-  <h1>BuscaFIPE</h1>
-  <form id="search-vehicle">
-    <h2>Procurar veículo</h2>
-    <label>
-      Tipo
-      <select id="vehicle-type"></select>
-    </label>
-    <label>
-      Marca
-      <select id="vehicle-brand"></select>
-    </label>
-    <label>
-      Modelo
-      <select id="vehicle-model"></select>
-    </label>
-    <label>
-      Ano
-      <select id="vehicle-year"></select>
-    </label>
-    <button type="button" id="vehicle-search-button">Buscar informações</button>
-  </form>
-  <div id="vehicle-output">
-    <h2>Veículos</h2>
-  </div>
+  <header>
+    <h1>BuscaFIPE</h1>
+  </header>
+  <main>
+    <section>
+      <h2>Procurar veículo</h2>
+      <form id="search-vehicle">
+        <label>
+          Tipo
+          <select id="vehicle-type"></select>
+        </label>
+        <label>
+          Marca
+          <select id="vehicle-brand"></select>
+        </label>
+        <label>
+          Modelo
+          <select id="vehicle-model"></select>
+        </label>
+        <label>
+          Ano
+          <select id="vehicle-year"></select>
+        </label>
+        <button type="button" id="vehicle-search-button">Buscar informações</button>
+      </form>
+    </section>
+    <section>
+      <h2>Veículos</h2>
+      <div id="vehicle-output"></div>
+    </section>
+  </main>
+  <footer></footer>
   <script src="script.js"></script>
 </body>
 </html>
