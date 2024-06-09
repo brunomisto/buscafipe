@@ -4,9 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <title>Busca FIPE</title>
+  <title>BuscaFIPE</title>
 </head>
 <body>
+  <h1>BuscaFIPE</h1>
+  <form id="search-vehicle">
+    <h2>Procurar veículo</h2>
+    <label>
+      Tipo
+      <select id="vehicle-type"></select>
+    </label>
+    <label>
+      Marca
+      <select id="vehicle-brand"></select>
+    </label>
+    <label>
+      Modelo
+      <select id="vehicle-model"></select>
+    </label>
+    <label>
+      Ano
+      <select id="vehicle-year"></select>
+    </label>
+    <button type="button" id="vehicle-search-button">Buscar informações</button>
+  </form>
+  <div id="vehicle-output">
+    <h2>Veículos</h2>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
