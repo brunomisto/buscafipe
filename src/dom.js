@@ -1,4 +1,5 @@
 import { getBrands, getModels, getYears, getFipe } from "./api";
+import { getPreferedTheme } from "./theme";
 
 const vehicleSearchForm = document.getElementById("search-vehicle");
 const vehicleTypeSelect = document.getElementById("vehicle-type");
@@ -7,6 +8,7 @@ const vehicleModelSelect = document.getElementById("vehicle-model");
 const vehicleYearSelect = document.getElementById("vehicle-year");
 const vehicleSearchButton = document.getElementById("vehicle-search-button");
 const vehicleOutputElement = document.getElementById("vehicle-output");
+const themeTogglerButton = document.getElementById("theme-toggler");
 
 const vehicleSelects = [
   vehicleTypeSelect,
@@ -127,6 +129,16 @@ export const renderVehicleTypeSelect = () => {
   });
 };
 
+export const initializeTheme = () => {
+  const theme = getPreferedTheme();
+  if (theme === "dark") {
+    document.body.classList.add("dark-theme");
+    themeTogglerButton.innerText = "light_mode";
+  } else {
+    themeTogglerButton.innerText = "dark_mode";
+  }
+}
+
 export const addEventListeners = () => {
   vehicleSearchForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -199,6 +211,20 @@ export const addEventListeners = () => {
       alert(error.message);
     } finally {
       vehicleSearchButton.disabled = false;
+    }
+  });
+
+  themeTogglerButton.addEventListener("click", () => {
+    document.body.classList.toggle("dark-theme");
+
+    // Check selected theme and save it to localStorage
+    const isDark = document.body.classList.contains("dark-theme");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+
+    if (isDark) {
+      themeTogglerButton.innerText = "light_mode";
+    } else {
+      themeTogglerButton.innerText = "dark_mode";
     }
   });
 };

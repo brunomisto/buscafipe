@@ -1,4 +1,5 @@
-import { renderVehicleTypeSelect, addEventListeners } from "./dom";
+import { initializeTheme, renderVehicleTypeSelect, addEventListeners } from "./dom";
 
+initializeTheme();
 renderVehicleTypeSelect();
 addEventListeners();
