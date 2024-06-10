@@ -10,4 +10,4 @@ Aplicação web feita em HTML, CSS e JavaScript para procurar o preço de veícu
 - [ ] Arrastar veículos para mudar a ordem
 - [ ] Comando automatizado para deploy de GitHub pages
 - [ ] SEO
-- [ ] Fav Icon
+- [x] Fav Icon
