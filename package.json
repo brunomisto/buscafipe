@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "dev": "webpack --watch",
-    "build": "webpack"
+    "build": "webpack --mode production"
   },
   "keywords": [],
   "author": "",
