@@ -1,4 +1,6 @@
 :root {
+  --primary-color: rgb(32, 32, 32);
+  --primary-background-color: rgb(238, 238, 238);
   --primary-green: #51a852;
   --hover-primary-green: #397239;
 }
@@ -12,9 +14,37 @@
 }
 
 body {
+  transition-property: color background-color;
+  transition-duration: 100ms;
+  color: var(--primary-color);
+  background-color: var(--primary-background-color);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+body.dark-theme {
+  --primary-color: rgb(238, 238, 238);
+  --primary-background-color: rgb(32, 32, 32);
+}
+
+#theme-toggler {
+  transition: all;
+  transition-duration: 100ms;
+  color: var(--primary-color);
+  border: none;
+  background-color: transparent;
+}
+
+#theme-toggler:hover {
+  cursor: pointer;
+  transform: scale(1.5);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 main {
@@ -50,6 +80,9 @@ h2 {
 }
 
 #search-vehicle select {
+  color: var(--primary-color);
+  background-color: var(--primary-background-color);
+  border-color: var(--primary-color);
   padding: 5px;
   width: 300px;
 }
@@ -80,7 +113,7 @@ h2 {
 
 .vehicle {
   padding: 10px;
-  border: 1px solid black;
+  border: 1px solid var(--primary-color);
 }
 
 .vehicle-top {
@@ -95,6 +128,7 @@ h2 {
 }
 
 .vehicle-controls > button {
+  color: var(--primary-color);
   cursor: pointer;
   border: none;
   background-color: transparent;
@@ -125,7 +159,7 @@ footer a {
   margin: auto;
   width: fit-content;
   text-decoration: none;
-  color: black;
+  color: var(--primary-color);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -135,7 +169,8 @@ footer a:hover {
   text-decoration: underline;
 }
 
-footer img {
+footer svg {
+  fill: var(--primary-color);
   display: block;
   width: 1.5rem;
 }
