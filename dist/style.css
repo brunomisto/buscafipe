@@ -1,5 +1,11 @@
+:root {
+  --primary-green: #51a852;
+  --hover-primary-green: #397239;
+}
+
 * {
-  font-family: sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -40,6 +46,7 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
 }
 
 #search-vehicle select {
@@ -48,9 +55,17 @@ h2 {
 }
 
 #search-vehicle button {
+  background-color: var(--primary-green);
   padding: 10px;
-  border-width: 1px;
+  border: 1px solid white;
   border-radius: 10px;
+  box-shadow: 1px 1px 2px 0px #919191;
+  color: white;
+}
+
+#search-vehicle button:hover {
+  cursor: pointer;
+  background-color: var(--hover-primary-green);
 }
 
 #search-vehicle * {
@@ -66,19 +81,37 @@ h2 {
 .vehicle {
   padding: 10px;
   border: 1px solid black;
-  position: relative;
+}
+
+.vehicle-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .vehicle-controls {
   display: flex;
   gap: 5px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
+}
+
+.vehicle-controls > button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  transition: all;
+  transition-duration: 100ms;
 }
 
 .vehicle-info {
   display: none;
+}
+
+.vehicle-expand.expanded {
+  transform: rotate(90deg);
+}
+
+.vehicle-close:hover {
+  transform: rotate(90deg);
 }
 
 .vehicle-info.expanded {
@@ -88,6 +121,21 @@ h2 {
   gap: 5px;
 }
 
-footer {
-  text-align: center;
+footer a {
+  margin: auto;
+  width: fit-content;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer img {
+  display: block;
+  width: 1.5rem;
 }
