@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "dev": "webpack --watch",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "deploy": "npm run build && node publish.js"
   },
   "keywords": [],
   "author": "",
