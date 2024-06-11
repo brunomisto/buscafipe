@@ -1,0 +1,176 @@
+:root {
+  --primary-color: rgb(32, 32, 32);
+  --primary-background-color: rgb(238, 238, 238);
+  --primary-green: #51a852;
+  --hover-primary-green: #397239;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  transition-property: color background-color;
+  transition-duration: 100ms;
+  color: var(--primary-color);
+  background-color: var(--primary-background-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.dark-theme {
+  --primary-color: rgb(238, 238, 238);
+  --primary-background-color: rgb(32, 32, 32);
+}
+
+#theme-toggler {
+  transition: all;
+  transition-duration: 100ms;
+  color: var(--primary-color);
+  border: none;
+  background-color: transparent;
+}
+
+#theme-toggler:hover {
+  cursor: pointer;
+  transform: scale(1.5);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+main {
+  flex: 1;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+.container {
+  margin: auto;
+  padding: 1rem;
+  max-width: 1000px;
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+#search-vehicle {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#search-vehicle > label {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#search-vehicle select {
+  color: var(--primary-color);
+  background-color: var(--primary-background-color);
+  border-color: var(--primary-color);
+  padding: 5px;
+  width: 300px;
+}
+
+#search-vehicle button {
+  background-color: var(--primary-green);
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 10px;
+  box-shadow: 1px 1px 2px 0px #919191;
+  color: white;
+}
+
+#search-vehicle button:hover {
+  cursor: pointer;
+  background-color: var(--hover-primary-green);
+}
+
+#search-vehicle * {
+  font-size: 1rem;
+}
+
+#vehicle-output {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vehicle {
+  padding: 10px;
+  border: 1px solid var(--primary-color);
+}
+
+.vehicle-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vehicle-controls {
+  display: flex;
+  gap: 5px;
+}
+
+.vehicle-controls > button {
+  color: var(--primary-color);
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  transition: all;
+  transition-duration: 100ms;
+}
+
+.vehicle-info {
+  display: none;
+}
+
+.vehicle-expand.expanded {
+  transform: rotate(90deg);
+}
+
+.vehicle-close:hover {
+  transform: rotate(90deg);
+}
+
+.vehicle-info.expanded {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+footer a {
+  margin: auto;
+  width: fit-content;
+  text-decoration: none;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer svg {
+  fill: var(--primary-color);
+  display: block;
+  width: 1.5rem;
+}
