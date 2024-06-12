@@ -75,7 +75,6 @@ h2 {
 
 #search-vehicle > label {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
@@ -85,7 +84,8 @@ h2 {
   background-color: var(--primary-background-color);
   border-color: var(--primary-color);
   padding: 5px;
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
 }
 
 #search-vehicle button {
@@ -174,4 +174,11 @@ footer svg {
   fill: var(--primary-color);
   display: block;
   width: 1.5rem;
+}
+
+@media (max-width: 425px) {
+  #search-vehicle > label {
+    flex-direction: column;
+    align-items: baseline;
+  }
 }
