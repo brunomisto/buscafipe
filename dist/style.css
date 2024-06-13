@@ -14,7 +14,7 @@
 }
 
 body {
-  transition-property: color background-color;
+  transition-property: color, background-color;
   transition-duration: 100ms;
   color: var(--primary-color);
   background-color: var(--primary-background-color);
@@ -80,6 +80,8 @@ h2 {
 }
 
 #search-vehicle select {
+  transition-property: color, background-color;
+  transition-duration: 100ms;
   color: var(--primary-color);
   background-color: var(--primary-background-color);
   border-color: var(--primary-color);
