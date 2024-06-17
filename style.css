@@ -183,4 +183,8 @@ footer svg {
     flex-direction: column;
     align-items: baseline;
   }
+
+  #search-vehicle select {
+    max-width: 100%;
+  }
 }
