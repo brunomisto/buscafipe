@@ -117,7 +117,7 @@ const notificate = ({ message, type, time }) => {
 
   notificationElement.className = `notification ${type}`;
 
-  notificationMessageElement.innerText = `${message} ${Math.random()}`;
+  notificationMessageElement.innerText = message;
   notificationElement.appendChild(notificationMessageElement);
   notificationElement.appendChild(notificationCloseButton);
 
