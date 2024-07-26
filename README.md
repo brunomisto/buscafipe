@@ -5,9 +5,11 @@ Aplicação web feita em HTML, CSS e JavaScript para procurar o preço de veícu
 ## TODO
 
 - [x] Modo escuro
-- [ ] Mostrar erros sem alert
+- [x] Mostrar erros sem alert
 - [ ] Pedir confirmação do usuário para deletar veículos
 - [ ] Arrastar veículos para mudar a ordem
 - [x] Comando automatizado para deploy de GitHub pages
 - [ ] SEO
 - [x] Fav Icon
+- [ ] Salvar veículos no localStorage
+- [ ] Usar TypeScript

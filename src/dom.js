@@ -9,6 +9,7 @@ const vehicleYearSelect = document.getElementById("vehicle-year");
 const vehicleSearchButton = document.getElementById("vehicle-search-button");
 const vehicleOutputElement = document.getElementById("vehicle-output");
 const themeTogglerButton = document.getElementById("theme-toggler");
+const notificationsElement = document.getElementById("notifications");
 
 const vehicleSelects = [
   vehicleTypeSelect,
@@ -103,6 +104,28 @@ const renderVehicle = (fipeInfo) => {
   vehicleOutputElement.appendChild(vehicleElement);
 };
 
+const notificate = ({ message, type, time }) => {
+  const notificationElement = document.createElement("div");
+  const notificationMessageElement = document.createElement("p");
+  const notificationCloseButton = document.createElement("button");
+
+  notificationCloseButton.className = "material-symbols-outlined notification-close";
+  notificationCloseButton.innerText = "close";
+  notificationCloseButton.addEventListener("click", () => {
+    notificationElement.remove();
+  });
+
+  notificationElement.className = `notification ${type}`;
+
+  notificationMessageElement.innerText = message;
+  notificationElement.appendChild(notificationMessageElement);
+  notificationElement.appendChild(notificationCloseButton);
+  notificationsElement.appendChild(notificationElement);
+  setTimeout(() => {
+    notificationElement.remove();
+  }, time);
+}
+
 export const renderVehicleTypeSelect = () => {
   const vehicleTypes = [
     { value: "cars", text: "Carro" }, 
@@ -153,7 +176,11 @@ export const addEventListeners = () => {
       const brands = await getBrands(selectedType);
       renderSelect(brands, vehicleBrandSelect);
     } catch (error) {
-      alert(error.message);
+      notificate({
+        message: error.message,
+        type: "error",
+        time: 10 * 1000
+      });
     } finally {
       vehicleTypeSelect.disabled = false;
     }
@@ -169,7 +196,11 @@ export const addEventListeners = () => {
       const models = await getModels(selectedType, selectedBrand);
       renderSelect(models, vehicleModelSelect);
     } catch (error) {
-      alert(error.message);
+      notificate({
+        message: error.message,
+        type: "error",
+        time: 10 * 1000
+      });
     } finally {
       vehicleBrandSelect.disabled = false;
     }
@@ -186,7 +217,11 @@ export const addEventListeners = () => {
       const years = await getYears(selectedType, selectedBrand, selectedModel);
       renderSelect(years, vehicleYearSelect);
     } catch (error) {
-      alert(error.message);
+      notificate({
+        message: error.message,
+        type: "error",
+        time: 10 * 1000
+      });
     } finally {
       vehicleModelSelect.disabled = false;
     }
@@ -200,7 +235,11 @@ export const addEventListeners = () => {
 
     const isAllSelected = selectedType && selectedBrand && selectedModel && selectedYear;
     if (!isAllSelected) {
-      return alert("Selecione todas as opções");
+      return notificate({
+        message: "Selecione todas as opções",
+        type: "error",
+        time: 10 * 1000
+      });
     }
 
     try {
@@ -208,7 +247,11 @@ export const addEventListeners = () => {
       const fipeInfo = await getFipe(selectedType, selectedBrand, selectedModel, selectedYear);
       renderVehicle(fipeInfo);
     } catch(error) {
-      alert(error.message);
+      notificate({
+        message: error.message,
+        type: "error",
+        time: 10 * 1000
+      });
     } finally {
       vehicleSearchButton.disabled = false;
     }
