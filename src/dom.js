@@ -117,10 +117,16 @@ const notificate = ({ message, type, time }) => {
 
   notificationElement.className = `notification ${type}`;
 
-  notificationMessageElement.innerText = message;
+  notificationMessageElement.innerText = `${message} ${Math.random()}`;
   notificationElement.appendChild(notificationMessageElement);
   notificationElement.appendChild(notificationCloseButton);
-  notificationsElement.appendChild(notificationElement);
+
+  // Append as the first child
+  notificationsElement.insertBefore(
+    notificationElement,
+    notificationsElement.firstChild
+  );
+
   setTimeout(() => {
     notificationElement.remove();
   }, time);
