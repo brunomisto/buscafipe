@@ -1,6 +1,6 @@
 # BuscaFIPE
 
-Aplicação web feita em HTML, CSS e JavaScript para procurar o preço de veículos consumindo a [FIPE API](https://fipe.online/).
+Front-end feito em HTML, CSS e JavaScript para procurar o preço de veículos consumindo a [FIPE API](https://fipe.online/).
 
 ## TODO
 
@@ -13,3 +13,4 @@ Aplicação web feita em HTML, CSS e JavaScript para procurar o preço de veícu
 - [x] Fav Icon
 - [ ] Salvar veículos no localStorage
 - [ ] Usar TypeScript
+- [ ] Pesquisar por texto nos selects
